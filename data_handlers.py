@@ -18,12 +18,6 @@ def appendData(product):
 
     new_row = pd.Series([product["price"], product["time_stamp"]], index=data.columns)
 
-    # print(new_row)
-
     data = data.append(new_row, ignore_index=True)
-    # print(data)
 
     data.to_csv(file_path)
-
-
-appendData(product)
