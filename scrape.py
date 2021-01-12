@@ -22,6 +22,13 @@ def getData(item):
     product_title = soup.find(id="productTitle").text.strip()
     time_stamp = datetime.now()
 
-    data = {"id": item.id, "product_name": product_title, "price": price, "time_stamp": time_stamp}
+    data = {
+        "id": item.id,
+        "product_name": product_title,
+        "price": price,
+        "time_stamp": time_stamp,
+        "url": item.url,
+        "target_price": item.target_price,
+    }
 
     return data
