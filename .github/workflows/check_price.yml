@@ -2,13 +2,11 @@
 
 name: Check Price
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow every 8 hours
-  push:
-    branches: [ main ]
   schedule:
-    - cron: "0 */8 * * *"
+    - cron: '0 16 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -39,10 +37,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
+
       # Run script to check price
       - name: Run script
         run: python main.py
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }} 
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
